@@ -27,13 +27,14 @@ class EmployeeWageBuilder:
         self.total_working_hours = total_working_hours
 
 
-    """
-    Description:
-        This function  is used for calculating the total employee wage.
-    Parameter:
-        self is an instance of the objects.
-    """
     def total_employee_wage(self):
+        """
+        Description:
+            This function  is used for calculating the total employee wage.
+        Parameter:
+            self is an instance of the objects.
+        """
+
         while self.total_working_hours <= MAX_HRS_IN_MONTH and self.total_working_days <= NO_WORKING_DAYS:
             self.total_working_days = self.total_working_days + 1
             type_of_employee = random.randint(1, 3)
@@ -43,15 +44,16 @@ class EmployeeWageBuilder:
             self.total_emp_wage = self.total_emp_wage + self.emp_wage
         print("Total Conditional Wage:", self.total_emp_wage)
 
-    """
-    Description:
-        This function  is used for calculating employee daily work hours.
-    Parameter:
-        value is used for getting employee daily hour if an employee is of
-        full time it will store 8 and if employee is of part time it will store 4.
-        self is an instance of the object.
-    """
     def get_work_hours(self, value):
+        """
+        Description:
+            This function  is used for calculating employee daily work hours.
+        Parameter:
+            value is used for getting employee daily hour if an employee is of
+            full time it will store 8 and if employee is of part time it will store 4.
+            self is an instance of the objects
+        """
+
         switcher = {
             1: 8, 2: 4, 3: 0
         }
