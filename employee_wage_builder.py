@@ -7,6 +7,7 @@
 '''
 
 import random
+from typing import List
 
 IS_FULL_TIME = 1
 IS_PART_TIME = 2
@@ -25,36 +26,51 @@ class EmployeeWageBuilder:
         self.total_emp_wage = total_emp_wage
         self.total_working_days = total_working_days
         self.total_working_hours = total_working_hours
-
+        self.list = []
 
     def total_employee_wage(self):
         """
         Description:
-            This function  is used for calculating the total employee wage.
+        This function is used for calculating the total employee wage.
         Parameter:
-            self is an instance of the objects.
+        self is an instance of the objects.
         """
 
-        while self.total_working_hours <= MAX_HRS_IN_MONTH and self.total_working_days <= NO_WORKING_DAYS:
+        while self.total_working_hours <= MAX_HRS_IN_MONTH and self.total_working_days < NO_WORKING_DAYS:
             self.total_working_days = self.total_working_days + 1
             type_of_employee = random.randint(1, 3)
             self.emp_hrs = self.get_work_hours(type_of_employee)
             self.total_working_hours = self.total_working_hours + self.emp_hrs
             self.emp_wage = self.emp_hrs * EMP_RATE_PER_HOUR
             self.total_emp_wage = self.total_emp_wage + self.emp_wage
+            self.list.append(self.emp_wage)
         print("Total Conditional Wage:", self.total_emp_wage)
+    
+    
+
+    def print_monthly_wage(self):
+        """
+        Description:
+        This function is used for printing the monthly wage.
+        Parameter:
+        self is an instance of the objects
+        """
+        i=1
+        for item in self.list:
+            print("Day:" + str(i) + ", Wage: " + str(item))
+            i=i+1
 
     def get_work_hours(self, value):
         """
         Description:
-            This function  is used for calculating employee daily work hours.
+        This function is used for calculating employee daily work hours.
         Parameter:
-            value is used for getting employee daily hour if an employee is of
-            full time it will store 8 and if employee is of part time it will store 4.
-            self is an instance of the objects
+        value is used for getting employee daily hour if an employee is of
+        full time it will store 8 and if employee is of part time it will store 4.
+        self is an instance of the objects
         """
 
         switcher = {
-            1: 8, 2: 4, 3: 0
+        1: 8, 2: 4, 3: 0
         }
         return switcher.get(value, "hi")
