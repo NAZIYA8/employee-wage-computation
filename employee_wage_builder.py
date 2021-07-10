@@ -45,9 +45,7 @@ class EmployeeWageBuilder:
             self.total_emp_wage = self.total_emp_wage + self.emp_wage
             self.list.append((self.total_working_days, self.emp_wage))
             print("Total Conditional Wage:", self.total_emp_wage)
-            def print_monthly_wage(self):
-                for item in self.list:
-                    print("Day:" + str(item[0]) + ", Wage: " + str(item[1]))
+
 
     
     def print_monthly_wage(self):
